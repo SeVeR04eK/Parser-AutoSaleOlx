@@ -5,8 +5,16 @@ from typing import Generator, Dict, Any
 from time import sleep
 import os
 
+#Loading variables from .env
+from dotenv import load_dotenv
+#import os
+
+load_dotenv()
+API_URL = os.getenv("SHOP_API_URL")
+IMG_URL = os.getenv("SHOP_IMG_URL")
+
 class Parser:
-    url_base = "https://www.kamille.pl/webapi/front/pl_PL/products/PLN/list/"
+    url_base = API_URL
 
     @classmethod
     def get_json(cls) -> Generator[Dict[str, Any], None, None]:
@@ -42,7 +50,7 @@ class Parser:
                 sleep(3)
                 #Saving data in variables
                 name = data["list"][0]["name"]
-                img = "https://www.kamille.pl/userdata/public/gfx/"+data["list"][0]["main_image_filename"]
+                img = IMG_URL+data["list"][0]["main_image_filename"]
                 Parser.save_image(img)
 
                 #Desc
@@ -71,4 +79,3 @@ def main():
     for item in parser.get_data():
         print(item,"\n")
 
-main()

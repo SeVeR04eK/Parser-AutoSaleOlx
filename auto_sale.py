@@ -65,10 +65,6 @@ def post_ad():
         By.XPATH, "//input[@aria-label='RUCH package size L']"
     ).click()
 
-    driver.find_element(
-        By.XPATH, "//input[@aria-label='POCZTA package size L']"
-    ).click()
-
     # ---------- Courier delivery (radio buttons) ----------
     radios = wait.until(
         EC.presence_of_all_elements_located(

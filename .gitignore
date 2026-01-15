@@ -3,3 +3,4 @@
 ChromeProfile/
 __pycache__/
 foto/
+.env
