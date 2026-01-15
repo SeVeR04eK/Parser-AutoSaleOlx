@@ -1,4 +1,4 @@
-# 🚗 OLX AutoSale Parser & AutoPoster
+# 🚗 Online Shop Parser & OLX AutoPoster
 
 **A fully automated system for mass posting ads on OLX using product data from an external store**
 
