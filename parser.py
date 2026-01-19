@@ -17,9 +17,9 @@ class Parser:
     url_base = API_URL
 
     @classmethod
-    def get_json(cls) -> Generator[Dict[str, Any], None, None]:
+    def get_json(cls, from_itemid, to_itemid) -> Generator[Dict[str, Any], None, None]:
         # Getting JSON
-        for i in range(3000, 10001):
+        for i in range(from_itemid, to_itemid + 1):
             url_ = cls.url_base + str(i)
             response = requests.get(url_)
             yield response.json()
@@ -36,22 +36,20 @@ class Parser:
         response = requests.get(img_url)
         with open(save_path, "wb") as f:
             f.write(response.content)
-
-        print("Saved:", save_path)
-        return save_path
+            sleep(7)
 
 
     @staticmethod
-    def get_data():
-        for data in Parser.get_json():
+    def get_data(from_itemid, to_itemid):
+        for data in Parser.get_json(from_itemid, to_itemid):
             if data["pages"] == 0:
                 continue
             else:
                 sleep(3)
                 #Saving data in variables
                 name = data["list"][0]["name"]
-                img = IMG_URL+data["list"][0]["main_image_filename"]
-                Parser.save_image(img)
+                img_base = IMG_URL+data["list"][0]["main_image_filename"]
+                Parser.save_image(img_base)
 
                 #Desc
                 raw = data["list"][0]["description"]
@@ -71,11 +69,16 @@ class Parser:
                 #My price
                 middle_price = (price_origin + price_origin_net) / 2
                 my_price = round((price_origin + middle_price) / 2, 2)
+                my_price = str(my_price).replace(".", ",")
+                price = my_price
 
                 yield name, description, my_price
 
-def main():
-    parser = Parser()
-    for item in parser.get_data():
-        print(item,"\n")
+# def main():
+#     parser = Parser()
+#     for item in parser.get_data(2000, 10000):
+#         print(item[0],"\n")
+#
+# main()
+
 
