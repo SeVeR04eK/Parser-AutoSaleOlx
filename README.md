@@ -6,7 +6,7 @@
 ## ⚠️ Disclaimer
 This project is provided strictly for educational and research purposes only.
 The author does not encourage or endorse automated posting, scraping, or any activity that violates OLX’s Terms of Service or local laws.
-Use responsibly and at your own risk. (I know I forgot to add .env in the first 3 commits, my bad)
+Use responsibly and at your own risk. (I know I forgot to add .env in the first 3 commits, my bad, I left .env file as an example on purpose so you can see check what every single line does, of course normally I won't do it).
 
 ---
 
