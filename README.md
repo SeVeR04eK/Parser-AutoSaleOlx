@@ -1,16 +1,16 @@
-# 🚗 Online Shop Parser & OLX AutoPoster
+# Online Shop Parser & OLX AutoPoster
 
 **A fully automated system for mass posting ads on OLX using product data from an external store**
 
 
-## ⚠️ Disclaimer
+## Disclaimer
 This project is provided strictly for educational and research purposes only.
 The author does not encourage or endorse automated posting, scraping, or any activity that violates OLX’s Terms of Service or local laws.
 Use responsibly and at your own risk. (I know I forgot to add .env in the first 3 commits, my bad, I left .env file as an example on purpose so you can see check what every single line does, of course normally I won't do it).
 
 ---
 
-## 🧩 Project Overview
+## Project Overview
 
 This project combines two powerful components:
 
@@ -21,7 +21,7 @@ The system is fully autonomous: it fetches product data, cleans descriptions, do
 
 ---
 
-## ⚙️ Project Structure
+## Project Structure
 
 ```
 Parser-AutoPostOLX/
@@ -37,7 +37,7 @@ Parser-AutoPostOLX/
 
 ---
 
-## 🔍 Product Parser (`parser.py`)
+## Product Parser (`parser.py`)
 
 - Loads JSON data from `SHOP_API_URL`
 - Extracts:
@@ -51,7 +51,7 @@ Parser-AutoPostOLX/
 
 ---
 
-## 🤖 OLX Auto-Poster (`auto_sale.py`)
+## OLX Auto-Poster (`auto_sale.py`)
 
 - Uses `undetected_chromedriver` with a real Chrome profile
 - Masks Selenium to bypass OLX bot detection
@@ -66,7 +66,7 @@ Parser-AutoPostOLX/
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 1. Install dependencies:
    ```bash
@@ -87,7 +87,7 @@ Parser-AutoPostOLX/
 
 ---
 
-## 🛡️ Stealth & Stability
+## Stealth & Stability
 
 - Uses `undetected_chromedriver` with key flags:
   - `--disable-blink-features=AutomationControlled`
